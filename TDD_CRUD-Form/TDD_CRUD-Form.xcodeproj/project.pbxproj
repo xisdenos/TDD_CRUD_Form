@@ -17,7 +17,7 @@
 		068E25FC28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E25FB28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift */; };
 		068E260928F211AC00C987B7 /* SignUpModelFormFirstNameValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260828F211AC00C987B7 /* SignUpModelFormFirstNameValidatorTest.swift */; };
 		068E260B28F2128A00C987B7 /* SignupFormModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */; };
-		068E260D28F21B5100C987B7 /* FormModelValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260C28F21B5100C987B7 /* FormModelValidatorError.swift */; };
+		068E260D28F21B5100C987B7 /* FormModelValidatorErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260C28F21B5100C987B7 /* FormModelValidatorErrors.swift */; };
 		068E261028F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260F28F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		068E25FB28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_CRUD_FormUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		068E260828F211AC00C987B7 /* SignUpModelFormFirstNameValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelFormFirstNameValidatorTest.swift; sourceTree = "<group>"; };
 		068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormModelValidator.swift; sourceTree = "<group>"; };
-		068E260C28F21B5100C987B7 /* FormModelValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModelValidatorError.swift; sourceTree = "<group>"; };
+		068E260C28F21B5100C987B7 /* FormModelValidatorErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModelValidatorErrors.swift; sourceTree = "<group>"; };
 		068E260F28F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelFormPasswordValidatorTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 				068E25E328F20FFC00C987B7 /* LaunchScreen.storyboard */,
 				068E25E628F20FFC00C987B7 /* Info.plist */,
 				068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */,
-				068E260C28F21B5100C987B7 /* FormModelValidatorError.swift */,
+				068E260C28F21B5100C987B7 /* FormModelValidatorErrors.swift */,
 			);
 			path = "TDD_CRUD-Form";
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 			files = (
 				068E25DD28F20FFA00C987B7 /* ViewController.swift in Sources */,
 				068E25D928F20FFA00C987B7 /* AppDelegate.swift in Sources */,
-				068E260D28F21B5100C987B7 /* FormModelValidatorError.swift in Sources */,
+				068E260D28F21B5100C987B7 /* FormModelValidatorErrors.swift in Sources */,
 				068E260B28F2128A00C987B7 /* SignupFormModelValidator.swift in Sources */,
 				068E25DB28F20FFA00C987B7 /* SceneDelegate.swift in Sources */,
 			);
