@@ -16,10 +16,21 @@ class SignupFormModelValidator {
     }
     
     func isFirstNameNotEmpty() -> (Result<Bool, FormModelValidatorError>) {
-        var returnValue = true
-        
         if firstName.isEmpty {
             return .failure(FormModelValidatorError.emptyName)
+        }
+        
+        return .success(true)
+    }
+    
+    func correctNameLength() -> (Result<Bool, FormModelValidatorError>) {
+        
+        if firstName.count <= 3 {
+            return .failure(FormModelValidatorError.nameTooShort)
+        }
+            
+        if firstName.count >= 13 {
+            return .failure(FormModelValidatorError.nameTooLong)
         }
         
         return .success(true)
