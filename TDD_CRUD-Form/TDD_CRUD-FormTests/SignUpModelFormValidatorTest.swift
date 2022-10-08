@@ -14,7 +14,7 @@
 import XCTest
 @testable import TDD_CRUD_Form
 
-final class SignUpModelFormValidator: XCTestCase {
+final class SignUpModelFormValidatorTest: XCTestCase {
     
     var sut: SignupFormModelValidator!
 
@@ -38,15 +38,15 @@ final class SignUpModelFormValidator: XCTestCase {
             XCTAssertTrue(result)
             
         case .failure( _ ):
-            XCTFail("The isfirstNameValid() should have returned True for a valid first name but returned false")
+            XCTFail("The isfirstNameValid() should have returned TRUE for a not empty first name but returned FALSE")
         }
     }
     
     func testSignUpModelFormValidator_WhenEmptyFirstNameProvided_ShouldReturnEmptyError() {
         
         // Arrange
-        sut.firstName = ""
         // Act
+        sut.firstName = ""
         let firstNameValid = sut.isFirstNameNotEmpty()
         
         // Assert
@@ -63,10 +63,50 @@ final class SignUpModelFormValidator: XCTestCase {
         
         // Arrange
         // Act
-        let correctLengthFirstName = sut.isFirstNameNotEmpty()
+        let correctLengthFirstName = sut.correctNameLength()
         
         // Assert
+        switch correctLengthFirstName {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure( _ ):
+            XCTFail("The correctLengthFirstName() should have returned TRUE for a first name with size beetween 4 and 12 but returned FALSE")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenShortFirstNameProvided_ShouldReturnShortLengthError() {
         
+        // Arrange
+        // Act
+        sut.firstName = "Luc"
+        let correctLengthFirstName = sut.correctNameLength()
+        
+        // Assert
+        switch correctLengthFirstName {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure( let error ):
+            XCTAssertEqual(error, FormModelValidatorError.nameTooShort, "The correctLengthFirstName() should have returned \(FormModelValidatorError.nameTooShort) but returned \(error) instead")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenLongFirstNameProvided_ShouldReturnLongLengthError() {
+        
+        // Arrange
+        // Act
+        sut.firstName = "Lucasvcghfhfhfghfghf"
+        let correctLengthFirstName = sut.correctNameLength()
+        
+        // Assert
+        switch correctLengthFirstName {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure( let error ):
+            XCTAssertEqual(error, FormModelValidatorError.nameTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorError.nameTooLong) but returned \(error) instead")
+        }
     }
 
 }
