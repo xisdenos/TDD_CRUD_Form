@@ -33,8 +33,25 @@ final class SignUpModelFormValidator: XCTestCase {
         let firstNameValid = sut.isFirstNameNotEmpty(firstName: "Lucas")
         
         // Assert
+        switch firstNameValid {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure(let error):
+            XCTAssertEqual(error, FormModelValidatorError.emptyName, "The isfirstNameValid() should have returned True for a valid first name but returned false")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenFirstNameProvided_ShouldRespectCorrectLength() {
         
-        XCTAssertTrue(firstNameValid, "The isfirstNameValid() should have returned True for a valid first name but returned false")
+        // Arrange
+        let sut = SignupFormModelValidator()
+        
+        // Act
+        let correctLengthFirstName = sut.isFirstNameNotEmpty(firstName: "Lucas")
+        
+        // Assert
+        
     }
 
 }
