@@ -19,7 +19,7 @@ final class SignUpModelFormValidator: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator()
+        sut = SignupFormModelValidator(firstName: "Lucas")
     }
 
     override func tearDownWithError() throws {
@@ -30,7 +30,7 @@ final class SignUpModelFormValidator: XCTestCase {
         
         // Arrange
         // Act
-        let firstNameValid = sut.isFirstNameNotEmpty(firstName: "s")
+        let firstNameValid = sut.isFirstNameNotEmpty()
         
         // Assert
         switch firstNameValid {
@@ -45,8 +45,9 @@ final class SignUpModelFormValidator: XCTestCase {
     func testSignUpModelFormValidator_WhenEmptyFirstNameProvided_ShouldReturnEmptyError() {
         
         // Arrange
+        sut.firstName = ""
         // Act
-        let firstNameValid = sut.isFirstNameNotEmpty(firstName: "")
+        let firstNameValid = sut.isFirstNameNotEmpty()
         
         // Assert
         switch firstNameValid {
@@ -62,7 +63,7 @@ final class SignUpModelFormValidator: XCTestCase {
         
         // Arrange
         // Act
-        let correctLengthFirstName = sut.isFirstNameNotEmpty(firstName: "Lucas")
+        let correctLengthFirstName = sut.isFirstNameNotEmpty()
         
         // Assert
         

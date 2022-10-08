@@ -9,7 +9,13 @@ import Foundation
 
 class SignupFormModelValidator {
     
-    func isFirstNameNotEmpty(firstName: String) -> (Result<Bool, FormModelValidatorError>) {
+    var firstName: String
+    
+    init(firstName: String) {
+        self.firstName = firstName
+    }
+    
+    func isFirstNameNotEmpty() -> (Result<Bool, FormModelValidatorError>) {
         var returnValue = true
         
         if firstName.isEmpty {
