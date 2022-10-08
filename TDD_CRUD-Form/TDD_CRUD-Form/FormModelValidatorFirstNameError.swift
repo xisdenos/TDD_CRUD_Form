@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FormModelValidatorError: Error {
+enum FormModelValidatorFirstNameError: Error {
     case emptyName
     case nameTooShort
     case nameTooLong

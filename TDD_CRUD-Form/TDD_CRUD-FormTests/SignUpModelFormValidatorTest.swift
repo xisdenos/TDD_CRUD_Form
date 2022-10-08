@@ -55,7 +55,7 @@ final class SignUpModelFormValidatorTest: XCTestCase {
             XCTFail("Test need the result to fail")
             
         case .failure(let error):
-            XCTAssertEqual(error, FormModelValidatorError.emptyName, "The isfirstNameValid() should have returned correct empty name error but returned \(error)")
+            XCTAssertEqual(error, FormModelValidatorFirstNameError.emptyName, "The isfirstNameValid() should have returned correct empty name error but returned \(error)")
         }
     }
     
@@ -88,7 +88,7 @@ final class SignUpModelFormValidatorTest: XCTestCase {
             XCTFail("Test need the result to fail")
             
         case .failure( let error ):
-            XCTAssertEqual(error, FormModelValidatorError.nameTooShort, "The correctLengthFirstName() should have returned \(FormModelValidatorError.nameTooShort) but returned \(error) instead")
+            XCTAssertEqual(error, FormModelValidatorFirstNameError.nameTooShort, "The correctLengthFirstName() should have returned \(FormModelValidatorFirstNameError.nameTooShort) but returned \(error) instead")
         }
     }
     
@@ -105,7 +105,7 @@ final class SignUpModelFormValidatorTest: XCTestCase {
             XCTFail("Test need the result to fail")
             
         case .failure( let error ):
-            XCTAssertEqual(error, FormModelValidatorError.nameTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorError.nameTooLong) but returned \(error) instead")
+            XCTAssertEqual(error, FormModelValidatorFirstNameError.nameTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorFirstNameError.nameTooLong) but returned \(error) instead")
         }
     }
 
