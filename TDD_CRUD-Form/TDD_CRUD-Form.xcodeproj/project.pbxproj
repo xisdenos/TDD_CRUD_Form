@@ -16,6 +16,9 @@
 		068E25F028F20FFC00C987B7 /* TDD_CRUD_FormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E25EF28F20FFC00C987B7 /* TDD_CRUD_FormTests.swift */; };
 		068E25FA28F20FFC00C987B7 /* TDD_CRUD_FormUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E25F928F20FFC00C987B7 /* TDD_CRUD_FormUITests.swift */; };
 		068E25FC28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E25FB28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift */; };
+		068E260928F211AC00C987B7 /* SignUpModelFormValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260828F211AC00C987B7 /* SignUpModelFormValidatorTest.swift */; };
+		068E260B28F2128A00C987B7 /* SignupFormModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */; };
+		068E260D28F21B5100C987B7 /* FormModelValidatorFirstNameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260C28F21B5100C987B7 /* FormModelValidatorFirstNameError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		068E25F528F20FFC00C987B7 /* TDD_CRUD-FormUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD_CRUD-FormUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		068E25F928F20FFC00C987B7 /* TDD_CRUD_FormUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_CRUD_FormUITests.swift; sourceTree = "<group>"; };
 		068E25FB28F20FFC00C987B7 /* TDD_CRUD_FormUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_CRUD_FormUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		068E260828F211AC00C987B7 /* SignUpModelFormValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelFormValidatorTest.swift; sourceTree = "<group>"; };
+		068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormModelValidator.swift; sourceTree = "<group>"; };
+		068E260C28F21B5100C987B7 /* FormModelValidatorFirstNameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModelValidatorFirstNameError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,8 @@
 				068E25E128F20FFC00C987B7 /* Assets.xcassets */,
 				068E25E328F20FFC00C987B7 /* LaunchScreen.storyboard */,
 				068E25E628F20FFC00C987B7 /* Info.plist */,
+				068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */,
+				068E260C28F21B5100C987B7 /* FormModelValidatorFirstNameError.swift */,
 			);
 			path = "TDD_CRUD-Form";
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				068E25EF28F20FFC00C987B7 /* TDD_CRUD_FormTests.swift */,
+				068E260828F211AC00C987B7 /* SignUpModelFormValidatorTest.swift */,
 			);
 			path = "TDD_CRUD-FormTests";
 			sourceTree = "<group>";
@@ -260,6 +269,8 @@
 			files = (
 				068E25DD28F20FFA00C987B7 /* ViewController.swift in Sources */,
 				068E25D928F20FFA00C987B7 /* AppDelegate.swift in Sources */,
+				068E260D28F21B5100C987B7 /* FormModelValidatorFirstNameError.swift in Sources */,
+				068E260B28F2128A00C987B7 /* SignupFormModelValidator.swift in Sources */,
 				068E25DB28F20FFA00C987B7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068E260928F211AC00C987B7 /* SignUpModelFormValidatorTest.swift in Sources */,
 				068E25F028F20FFC00C987B7 /* TDD_CRUD_FormTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
