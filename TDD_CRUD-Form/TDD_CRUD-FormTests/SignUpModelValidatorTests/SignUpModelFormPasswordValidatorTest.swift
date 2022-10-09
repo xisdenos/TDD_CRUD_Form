@@ -66,4 +66,38 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
             XCTFail("The correctNameLength() should have returned TRUE for a first name with size beetween 8 and 24 but returned FALSE")
         }
     }
+    
+    func testSignUpModelFormValidator_WhenShortPasswordProvided_ShouldReturnShortLengthError() {
+        
+        // Arrange
+        // Act
+        sut.password = "1234567"
+        let correctLengthPassword = sut.correctPasswordLength()
+        
+        // Assert
+        switch correctLengthPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure( let error ):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordTooShort, "The correctLengthFirstName() should have returned \(FormModelValidatorPasswordError.passwordTooShort) but returned \(error) instead")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenLongPasswordProvided_ShouldReturnLongLengthError() {
+        
+        // Arrange
+        // Act
+        sut.password = "123456789123456789123456789"
+        let correctLengthPassword = sut.correctPasswordLength()
+        
+        // Assert
+        switch correctLengthPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure( let error ):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorPasswordError.passwordTooLong) but returned \(error) instead")
+        }
+    }
 }
