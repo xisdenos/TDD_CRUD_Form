@@ -10,10 +10,14 @@ import Foundation
 class SignupFormModelValidator {
     
     var firstName: String
+    var password: String
     
-    init(firstName: String) {
+    init(firstName: String, password: String) {
         self.firstName = firstName
+        self.password = password
     }
+    
+    //MARK: - firstName validators
     
     func isFirstNameNotEmpty() -> (Result<Bool, FormModelValidatorFirstNameError>) {
         if firstName.isEmpty {
@@ -35,4 +39,28 @@ class SignupFormModelValidator {
         
         return .success(true)
     }
+    
+    //MARK: - password validators
+    
+    func isPasswordNotEmpty() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        if password.isEmpty {
+            return .failure(FormModelValidatorPasswordError.emptyPassword)
+        }
+        
+        return .success(true)
+    }
+    
+    func correctPasswordLength() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        if password.count <= 7 {
+            return .failure(FormModelValidatorPasswordError.passwordTooShort)
+        }
+        
+        if password.count >= 25 {
+            return .failure(FormModelValidatorPasswordError.passwordTooLong)
+        }
+        
+        return .success(true)
+    }
+    
 }

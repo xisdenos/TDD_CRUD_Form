@@ -19,7 +19,7 @@ final class SignUpModelFormValidatorTest: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator(firstName: "Lucas")
+        sut = SignupFormModelValidator(firstName: "Lucas", password: "generic_password")
     }
 
     override func tearDownWithError() throws {
@@ -108,5 +108,4 @@ final class SignUpModelFormValidatorTest: XCTestCase {
             XCTAssertEqual(error, FormModelValidatorFirstNameError.nameTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorFirstNameError.nameTooLong) but returned \(error) instead")
         }
     }
-
 }
