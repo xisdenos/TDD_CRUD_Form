@@ -50,4 +50,17 @@ class SignupFormModelValidator {
         return .success(true)
     }
     
+    func correctPasswordLength() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        if password.count <= 7 {
+            return .failure(FormModelValidatorPasswordError.passwordTooShort)
+        }
+        
+        if password.count >= 25 {
+            return .failure(FormModelValidatorPasswordError.passwordTooLong)
+        }
+        
+        return .success(true)
+    }
+    
 }
