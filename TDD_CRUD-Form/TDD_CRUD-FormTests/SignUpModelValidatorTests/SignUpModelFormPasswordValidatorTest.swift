@@ -13,7 +13,7 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator(firstName: "generic_name", password: "12345678")
+        sut = SignupFormModelValidator(firstName: "generic_name", password: "bolaAzulAmarela4")
     }
 
     override func tearDownWithError() throws {
@@ -100,4 +100,38 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
             XCTAssertEqual(error, FormModelValidatorPasswordError.passwordTooLong, "The correctLengthFirstName() should have returned \(FormModelValidatorPasswordError.passwordTooLong) but returned \(error) instead")
         }
     }
+    
+    func testSignUpModelFormValidator_WhenPasswordWithNumbersProvided_ShouldContainsNumbers() {
+        
+        // Arrange
+        // Act
+        let numberInPassword = sut.doesPasswordContainsNumbers()
+        
+        // Assert
+        switch numberInPassword {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure( _ ):
+            XCTFail("The doesPasswordContainsNumbers() should have returned TRUE for a password tha contains numbers but returned FALSE")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenPasswordWithoutNumbersProvided_ShouldThrowNoNumbersError() {
+        
+        // Arrange
+        // Act
+        sut.password = "bolaAzulAmarela"
+        let numberInPassword = sut.doesPasswordContainsNumbers()
+        
+        // Assert
+        switch numberInPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure(let error):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordNotContainNumbers, "The doesPasswordContainsNumbers() should have returned correct no numbers password error but returned \(error)" )
+        }
+    }
 }
+

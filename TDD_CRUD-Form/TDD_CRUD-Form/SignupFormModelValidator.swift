@@ -63,4 +63,14 @@ class SignupFormModelValidator {
         return .success(true)
     }
     
+    func doesPasswordContainsNumbers() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        for character in password {
+            if character.isNumber {
+                return .success(true)
+            }
+        }
+        return .failure(FormModelValidatorPasswordError.passwordNotContainNumbers)
+    }
+    
 }
