@@ -185,7 +185,7 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
             XCTAssertTrue(result)
             
         case .failure( _ ):
-            XCTFail("The doesPasswordLetters() should have returned TRUE for a password tha contains letters but returned FALSE")
+            XCTFail("The doesPasswordLetters() should have returned TRUE for a password that contains letters but returned FALSE")
         }
     }
     
@@ -203,6 +203,41 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
             
         case .failure(let error):
             XCTAssertEqual(error, FormModelValidatorPasswordError.passwordNotContainSpecialCharacters, "The doesPasswordContainsSpecialCharacters() should have returned correct no special characters password error but returned \(error)" )
+        }
+    }
+    
+    // Validator for Empty Spaces
+    
+    func testSignUpModelFormValidator_WhenPasswordWithoutEmptySpaces_ShouldReturnTrue() {
+        
+        // Arrange
+        // Act
+        let emptySpacesInPassword = sut.doesPasswordContainsEmptySpaces()
+        
+        // Assert
+        switch emptySpacesInPassword {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure( _ ):
+            XCTFail("The doesPasswordContainsEmptySpaces() should have returned TRUE for a password without empty spaces but returned FALSE")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenPasswordWithEmptySpacesProvided_ShouldThrowEmptySpacesCharactersError() {
+        
+        // Arrange
+        // Act
+        sut.password = "123456789gh "
+        let emptySpacesInPassword = sut.doesPasswordContainsEmptySpaces()
+        
+        // Assert
+        switch emptySpacesInPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure(let error):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordContainsEmptySpaces, "The doesPasswordContainsEmptySpaces() should have returned correct empty spaces password error but returned \(error)" )
         }
     }
 }

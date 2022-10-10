@@ -23,7 +23,6 @@ class SignupFormModelValidator {
         if firstName.isEmpty {
             return .failure(FormModelValidatorFirstNameError.emptyName)
         }
-        
         return .success(true)
     }
     
@@ -36,7 +35,6 @@ class SignupFormModelValidator {
         if firstName.count >= 13 {
             return .failure(FormModelValidatorFirstNameError.nameTooLong)
         }
-        
         return .success(true)
     }
     
@@ -46,7 +44,6 @@ class SignupFormModelValidator {
         if password.isEmpty {
             return .failure(FormModelValidatorPasswordError.emptyPassword)
         }
-        
         return .success(true)
     }
     
@@ -59,7 +56,6 @@ class SignupFormModelValidator {
         if password.count >= 25 {
             return .failure(FormModelValidatorPasswordError.passwordTooLong)
         }
-        
         return .success(true)
     }
     
@@ -92,4 +88,15 @@ class SignupFormModelValidator {
         }
         return .failure(FormModelValidatorPasswordError.passwordNotContainSpecialCharacters)
     }
+    
+    func doesPasswordContainsEmptySpaces() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        for character in password {
+            if character == " " {
+                return .failure(FormModelValidatorPasswordError.passwordContainsEmptySpaces)
+            }
+        }
+        return .success(true)
+    }
 }
+
