@@ -13,7 +13,7 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator(firstName: "generic_name", password: "bolaAzulAmarela4")
+        sut = SignupFormModelValidator(firstName: "generic_name", password: "123456789Bola")
     }
 
     override func tearDownWithError() throws {
@@ -101,7 +101,9 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
         }
     }
     
-    func testSignUpModelFormValidator_WhenPasswordWithNumbersProvided_ShouldContainsNumbers() {
+    // Validator for numbers
+    
+    func testSignUpModelFormValidator_WhenPasswordWithNumbersProvided_ShouldReturnTrue() {
         
         // Arrange
         // Act
@@ -133,5 +135,42 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
             XCTAssertEqual(error, FormModelValidatorPasswordError.passwordNotContainNumbers, "The doesPasswordContainsNumbers() should have returned correct no numbers password error but returned \(error)" )
         }
     }
+    
+    // Validator for Letters
+    
+    func testSignUpModelFormValidator_WhenPasswordWithLettersProvided_ShouldReturnTrue() {
+        
+        // Arrange
+        // Act
+        let lettersInPassword = sut.doesPasswordContainsLetters()
+        
+        // Assert
+        switch lettersInPassword {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure( _ ):
+            XCTFail("The doesPasswordLetters() should have returned TRUE for a password tha contains letters but returned FALSE")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenPasswordWithoutLettersProvided_ShouldThrowNoLettersError() {
+        
+        // Arrange
+        // Act
+        sut.password = "123456789"
+        let lettersInPassword = sut.doesPasswordContainsLetters()
+        
+        // Assert
+        switch lettersInPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure(let error):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordNotContainLetters, "The doesPasswordLetters() should have returned correct no letters password error but returned \(error)" )
+        }
+    }
+    
+    // Validator for 
 }
 

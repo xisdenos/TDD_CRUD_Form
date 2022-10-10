@@ -73,4 +73,23 @@ class SignupFormModelValidator {
         return .failure(FormModelValidatorPasswordError.passwordNotContainNumbers)
     }
     
+    
+    func doesPasswordContainsLetters() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        for character in password {
+            if character.isLetter {
+                return .success(true)
+            }
+        }
+        return .failure(FormModelValidatorPasswordError.passwordNotContainLetters)
+    }
+    
+    func doesPasswordContainsSpecialCharacters() -> (Result<Bool, FormModelValidatorPasswordError>) {
+        
+        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        if password.rangeOfCharacter(from: characterset.inverted) != nil {
+            return .success(true)
+        }
+        return .failure(FormModelValidatorPasswordError.passwordNotContainSpecialCharacters)
+    }
 }
