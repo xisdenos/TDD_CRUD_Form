@@ -13,7 +13,7 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator(firstName: "generic_name", password: "123456789Bola")
+        sut = SignupFormModelValidator(firstName: "generic_name", password: "123456789Bola/")
     }
 
     override func tearDownWithError() throws {
@@ -171,6 +171,39 @@ final class SignUpModelFormPasswordValidatorTest: XCTestCase {
         }
     }
     
-    // Validator for 
+    // Validator for Special Characters
+    
+    func testSignUpModelFormValidator_WhenPasswordWithSpecialCharactersProvided_ShouldReturnTrue() {
+        
+        // Arrange
+        // Act
+        let specialCharactersInPassword = sut.doesPasswordContainsSpecialCharacters()
+        
+        // Assert
+        switch specialCharactersInPassword {
+        case .success(let result):
+            XCTAssertTrue(result)
+            
+        case .failure( _ ):
+            XCTFail("The doesPasswordLetters() should have returned TRUE for a password tha contains letters but returned FALSE")
+        }
+    }
+    
+    func testSignUpModelFormValidator_WhenPasswordWithoutSpecialCharactersProvided_ShouldThrowNoSpecialCharactersError() {
+        
+        // Arrange
+        // Act
+        sut.password = "123456789gh"
+        let specialCharactersInPassword = sut.doesPasswordContainsSpecialCharacters()
+        
+        // Assert
+        switch specialCharactersInPassword {
+        case .success( _ ):
+            XCTFail("Test need the result to fail")
+            
+        case .failure(let error):
+            XCTAssertEqual(error, FormModelValidatorPasswordError.passwordNotContainSpecialCharacters, "The doesPasswordContainsSpecialCharacters() should have returned correct no special characters password error but returned \(error)" )
+        }
+    }
 }
 
