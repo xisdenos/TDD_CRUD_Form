@@ -103,6 +103,19 @@ class SignupFormModelValidator {
     
     //MARK: - email validators
     
+    func isEmailNotEmpty() -> (Result<Bool, FormModelValidatorEmailError>) {
+        if email.isEmpty {
+            return .failure(FormModelValidatorEmailError.emptyEmail)
+        }
+        return .success(true)
+    }
     
+    func isEmailWithCorrectFormat() -> (Result<Bool, FormModelValidatorEmailError>) {
+        
+        if email.contains("@") && email.contains(".") {
+            return .success(true)
+        }
+        return .failure(FormModelValidatorEmailError.wrongFormat)
+    }
 }
 
