@@ -11,10 +11,12 @@ class SignupFormModelValidator {
     
     var firstName: String
     var password: String
+    var email: String
     
-    init(firstName: String, password: String) {
+    init(firstName: String, password: String, email: String) {
         self.firstName = firstName
         self.password = password
+        self.email = email
     }
     
     //MARK: - firstName validators
@@ -97,6 +99,23 @@ class SignupFormModelValidator {
             }
         }
         return .success(true)
+    }
+    
+    //MARK: - email validators
+    
+    func isEmailNotEmpty() -> (Result<Bool, FormModelValidatorEmailError>) {
+        if email.isEmpty {
+            return .failure(FormModelValidatorEmailError.emptyEmail)
+        }
+        return .success(true)
+    }
+    
+    func isEmailWithCorrectFormat() -> (Result<Bool, FormModelValidatorEmailError>) {
+        
+        if email.contains("@") && email.contains(".") {
+            return .success(true)
+        }
+        return .failure(FormModelValidatorEmailError.wrongFormat)
     }
 }
 
