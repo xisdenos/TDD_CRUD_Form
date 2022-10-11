@@ -22,3 +22,8 @@ enum FormModelValidatorPasswordError: Error {
     case passwordNotContainSpecialCharacters
     case passwordContainsEmptySpaces
 }
+
+enum FormModelValidatorEmailError: Error {
+    case emptyEmail
+    case wrongFormat
+}

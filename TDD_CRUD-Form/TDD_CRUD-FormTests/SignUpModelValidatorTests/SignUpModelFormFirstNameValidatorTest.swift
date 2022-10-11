@@ -19,7 +19,7 @@ final class SignUpModelFormValidatorTest: XCTestCase {
     var sut: SignupFormModelValidator!
 
     override func setUpWithError() throws {
-        sut = SignupFormModelValidator(firstName: "Lucas", password: "generic_password")
+        sut = SignupFormModelValidator(firstName: "Lucas", password: "generic_password", email:"generic_email")
     }
 
     override func tearDownWithError() throws {

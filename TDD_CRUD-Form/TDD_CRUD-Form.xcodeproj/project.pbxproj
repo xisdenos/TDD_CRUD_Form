@@ -19,6 +19,7 @@
 		068E260B28F2128A00C987B7 /* SignupFormModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */; };
 		068E260D28F21B5100C987B7 /* FormModelValidatorErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260C28F21B5100C987B7 /* FormModelValidatorErrors.swift */; };
 		068E261028F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E260F28F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift */; };
+		06FC2FDC28F4CCF4005C9036 /* SignUpModelFormEmailValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FC2FDB28F4CCF4005C9036 /* SignUpModelFormEmailValidatorTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		068E260A28F2128A00C987B7 /* SignupFormModelValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormModelValidator.swift; sourceTree = "<group>"; };
 		068E260C28F21B5100C987B7 /* FormModelValidatorErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModelValidatorErrors.swift; sourceTree = "<group>"; };
 		068E260F28F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelFormPasswordValidatorTest.swift; sourceTree = "<group>"; };
+		06FC2FDB28F4CCF4005C9036 /* SignUpModelFormEmailValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelFormEmailValidatorTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				068E260828F211AC00C987B7 /* SignUpModelFormFirstNameValidatorTest.swift */,
 				068E260F28F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift */,
+				06FC2FDB28F4CCF4005C9036 /* SignUpModelFormEmailValidatorTest.swift */,
 			);
 			path = SignUpModelValidatorTests;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				068E260928F211AC00C987B7 /* SignUpModelFormFirstNameValidatorTest.swift in Sources */,
 				068E261028F240A200C987B7 /* SignUpModelFormPasswordValidatorTest.swift in Sources */,
+				06FC2FDC28F4CCF4005C9036 /* SignUpModelFormEmailValidatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

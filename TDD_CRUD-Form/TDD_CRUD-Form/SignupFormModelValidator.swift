@@ -11,10 +11,12 @@ class SignupFormModelValidator {
     
     var firstName: String
     var password: String
+    var email: String
     
-    init(firstName: String, password: String) {
+    init(firstName: String, password: String, email: String) {
         self.firstName = firstName
         self.password = password
+        self.email = email
     }
     
     //MARK: - firstName validators
@@ -98,5 +100,9 @@ class SignupFormModelValidator {
         }
         return .success(true)
     }
+    
+    //MARK: - email validators
+    
+    
 }
 
